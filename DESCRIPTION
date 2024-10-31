@@ -1,0 +1,17 @@
+Package: usdaoRganic
+Title: Gathers, Tidies, and Shares USDA & NOP Organic Operations Data
+Version: 0.0.0.9000
+Authors@R: 
+    person("Liza", "Wood", , "l.wood3@exeter.ac.uk", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0003-4325-6498"))
+Description: The core of the package is to deliver up-to-date data on US organic operations, with easy querying capabilities. Additional functionalities under the hood will demonstrate the data are collected and cleaned.
+License: `use_mit_license()`
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+Imports:
+    RSelenium,
+    pdftools, 
+    stringr,
+    dplyr, 
+    tidyr
+RoxygenNote: 7.3.2
