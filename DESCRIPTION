@@ -8,6 +8,7 @@ Description: The core of the package is to deliver up-to-date data on US organic
 License: `use_mit_license()`
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
+LazyData: true
 Imports:
     RSelenium,
     pdftools, 
@@ -15,3 +16,5 @@ Imports:
     dplyr, 
     tidyr
 RoxygenNote: 7.3.2
+Depends: 
+    R (>= 2.10)
