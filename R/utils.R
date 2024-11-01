@@ -109,6 +109,8 @@ usda_pdf_to_df <- function(pdf_path, year, cropcat_n){
     filter(location != "Total") %>%
     mutate(cert_organic_ops_total = org_under50perc_sales + org_over50perc_sales,
            all_organic_ops_total = cert_organic_ops_total + exempt_from_cert) %>%
+    mutate(all_organic_ops_total = ifelse(is.na(all_organic_ops_total),
+                                          cert_organic_ops_total, all_organic_ops_total)) %>%
     select(location, size, all, cert_organic_ops_total, org_under50perc_sales,
            org_over50perc_sales, exempt_from_cert, all_organic_ops_total) %>%
     arrange(location) %>%
@@ -182,11 +184,4 @@ usda_excel_to_df <- function(excel_path, year, cropcat_n){
 
   return(df)
 }
-
-# 2012 report: "https://agcensus.library.cornell.edu/wp-content/uploads/2012-organictab-1.pdf"
-#df12 <- usda_pdf_to_df('data/source/organictab_2012.pdf', 2017, 12)
-# 2017 report: "https://www.nass.usda.gov/Publications/AgCensus/2017/Online_Resources/Organics_Tabulation/organictab.pdf"
-#df17 <- usda_pdf_to_df('data/source/organictab_2017.pdf', 2017, 12)
-# 2022 report: https://www.nass.usda.gov/Publications/AgCensus/2022/index.php
-#df22 <- usda_excel_to_df('data/source/organictab_2022.xlsx', 2022, 12)
 
